@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>E-Ekip</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui;background:#0b0b0b;color:#fff}
+.hidden{display:none}
+.app{max-width:430px;margin:auto;padding:12px}
+.card{background:#151515;border-radius:16px;padding:14px;margin-bottom:12px}
+h2,h3{text-align:center}
+.btn{width:100%;padding:12px;border:none;border-radius:14px;background:#1f1f1f;color:#fff;margin-top:8px}
+.nav{display:flex;gap:6px}
+.nav button{flex:1;background:#1a1a1a;border:none;border-radius:12px;padding:10px;color:#fff}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<div id="login" class="card">
+  <h2>E-Ekip</h2>
+  <button class="btn" onclick="login()">Giriş Yap (Demo)</button>
+</div>
+
+<div id="panel" class="hidden">
+
+  <div class="nav">
+    <button onclick="show('profile')">👤</button>
+    <button onclick="show('team')">👥</button>
+    <button onclick="show('chat')">💬</button>
+    <button onclick="logout()">🚪</button>
+  </div>
+
+  <div id="profile" class="card">
+    <h3>Profil</h3>
+    <p>Hoş geldin 👋</p>
+  </div>
+
+  <div id="team" class="card hidden">
+    <h3>Ekip</h3>
+    <p>Ekip ayarları burada</p>
+  </div>
+
+  <div id="chat" class="card hidden">
+    <h3>Sohbet</h3>
+    <input placeholder="Mesaj yaz">
+  </div>
+
+</div>
+</div>
+
+<script>
+function login(){
+  document.getElementById("login").classList.add("hidden");
+  document.getElementById("panel").classList.remove("hidden");
+}
+function show(id){
+  ["profile","team","chat"].forEach(x=>{
+    document.getElementById(x).classList.add("hidden");
+  });
+  document.getElementById(id).classList.remove("hidden");
+}
+function logout(){location.reload()}
+</script>
+</body>
+</html>
